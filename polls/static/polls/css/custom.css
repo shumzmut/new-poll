@@ -1,0 +1,44 @@
+.navbar-custom {
+    background-color:#004747;
+    color:#ffffff;
+    border-radius:0;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+}
+/* Below is my custom style for the nav bar  */
+.navbar-inverse {
+  background-color: #001F1F;
+  border-color: #080808;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+    padding-left:20px;
+    padding-right:20px;
+    font-size: 16px;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color:transparent;
+}
+      
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #669999;
+}
+      
+.navbar-custom .navbar-brand {
+    color:#FFCC00;
+}
+.navbar-custom .navbar-toggle {
+    background-color:#eeeeee;
+}
+.navbar-custom .icon-bar {
+    background-color:#33aa33;
+}
+
+#slide {
+    padding-left:5px; 
+}
+
+

@@ -1,0 +1,49 @@
+{%	extends	"polls/index.html"	%}
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'polls/css/bootstrap.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'polls/css/main.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'polls/css/normalize.min.css' %}"/>
+
+{% block navbar %}
+
+<nav class="navbar navbar-inverse" style="text-align:center;background-color:#1010ff">
+  <div class="container-fluid" style="text-align:center;">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <!-- <a class="navbar-brand" href="#">Handyman</a> -->
+      <a class="navbar-brand"	href="{% url "polls:index" %}">Handyman<a/>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Find Jobs</a></li>
+        <li><a href="#">Post your Project</a></li>
+        <li><a href="#">View My Projects</a></li>    
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% endblock %}
+
+{% block content %}
+<div style="margin: 0 auto; background-color:#8888ee; width:800px;color:ffffff">
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form>
+</div>
+{% endblock %}
